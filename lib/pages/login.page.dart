@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/models/dados.dart';
+import 'package:login/pages/home.dart';
 
 class LoginPage extends StatefulWidget {
   var dados = new List<Dados>();
@@ -14,11 +15,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   var req = TextEditingController();
-
-  void login(){
-    if(req.text.isEmpty) return;
-    LoginPage();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,12 +52,17 @@ class _LoginPageState extends State<LoginPage> {
                 ButtonTheme(
                   height: 60.0,
                   child: RaisedButton(
-                    onPressed: login,
                     child: Text(
                       "Entrar",
                       style: TextStyle(color: Colors.deepPurple),
                       ),
                       color: Colors.white,
+                    onPressed:(){
+                      Navigator.push(context, 
+                        MaterialPageRoute(
+                          builder: (context)=>HomePage()),
+                      );
+                    }
                   ),
                 ),
               ]
